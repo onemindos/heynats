@@ -2,7 +2,7 @@ FROM node:24.11.0-trixie AS client-builder
 WORKDIR /app/client
 RUN corepack enable
 COPY client/package.json client/pnpm-lock.yaml ./
-RUN pnpm install
+RUN pnpm install --ignore-scripts
 COPY client/ ./
 RUN pnpm build
 
